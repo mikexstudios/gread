@@ -31,6 +31,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'flatui-rails', '~> 0.0.4'
 
 #group :test do
 #  gem 'capybara','~> 1.1.3' 
@@ -41,6 +42,7 @@ gem 'haml', '~> 3.1.7'
 gem 'haml_rails', '~> 0.1.0' #for haml generators
 
 gem 'high_voltage', '~> 1.2.1' #for static pages
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
