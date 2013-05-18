@@ -31,8 +31,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'flatui-rails', '~> 0.0.4'
+#gem 'flatui-rails', '~> 0.0.4'
 gem 'compass-rails', '~> 1.0.3'
+gem 'bootstrap-sass', '~> 2.3.1.0'
 
 #group :test do
 #  gem 'capybara','~> 1.1.3' 
