@@ -2,7 +2,8 @@
   %head
     %meta{:charset => "utf-8"}
     %title Test title
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+    -#Turning off responsive for now.
+    -#%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:name => "description", :content => ""}
     %meta{:name => "author", :content => ""}
     :plain
@@ -18,21 +19,14 @@
 
   %body
     -# removed the fixed attribute
-    .navbar.navbar-inverse
+    .navbar.navbar-static-top
       .navbar-inner
-        .container-fluid
-          %button.btn.btn-navbar{ "data-toggle".to_sym => "collapse", "data-target".to_sym => ".nav-collapse"}
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand{:href => '#'} Project name
-          .nav-collapse.collapse
-            %p.navbar-text.pull-right
-              Logged in as <a href="#" class="navbar-link">Username</a>
-            %ul.nav
-              %li.active <a href="#">Home</a>
-              %li <a href="#">About</a>
-              %li <a href="#">Contact</a>
+        %a.brand{:href => '#'} Gread
+        %form.navbar-form.pull-left
+          %input{:type => 'text', :class =>'span5'}
+          %button.btn{:type => 'submit'} <i class="icon-search"></i>.
+        %p.navbar-text.pull-right
+          <a href="#" class="navbar-link">Logout</a>
 
     .container-fluid
       = yield
