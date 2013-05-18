@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require flat-ui
+// require flat-ui
+// Loads all Bootstrap javascripts
+//= require bootstrap

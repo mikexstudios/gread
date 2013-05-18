@@ -10,7 +10,8 @@
  *
  *= require_self
  *= require_tree .
- *= require flat-ui
+ * require flat-ui
  * Bootstrap responsive must go after flat-ui which imports bootstrap
- *= require bootstrap-responsive.css
+ * Turning off for now:
+ * require bootstrap-responsive.css
  */
