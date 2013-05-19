@@ -1,17 +1,16 @@
 @import bootstrap
 @import compass/css3
 
+//NOTE: If sole icons in buttons don't seem like they have the right padding,
+//make sure doctype of html5 is set. That'll fix the problem.
+//See: https://github.com/twitter/bootstrap/issues/1962
+
 #header
   .brand
     font-weight: bold
   .navbar-inner
     //Remove box shadow set by bootstrap
     +single-box-shadow(transparent)
-    .navbar-form
-      input[type=text]
-        //For some reason, the search box isn't the right height to match the rest
-        //of the top navbar. So we force it here.
-        height: 30px
 
 #controls
   .navbar-inner
@@ -19,3 +18,5 @@
     background-color: transparent
     //Remove box shadow set by bootstrap
     +single-box-shadow(transparent)
+  .btn-refresh
+    width: 45px

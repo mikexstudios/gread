@@ -1,3 +1,4 @@
+!!! 5
 %html
   %head
     %meta{:charset => "utf-8"}
@@ -24,7 +25,7 @@
         %a.brand{:href => '#'} GREAD
         %form.navbar-form.pull-left
           %input{:type => 'text', :class =>'span5'}
-          %button.btn{:type => 'submit'} <i class="icon-search"></i>.
+          %button.btn{:type => 'submit'} <i class="icon-search"></i>
         %p.navbar-text.pull-right
           <a href="#" class="navbar-link">Logout</a>
 
@@ -33,7 +34,12 @@
         .span3
           %a.btn.btn-primary{:href => '#'} Subscribe
         .span9
-          %a.btn.btn-primary{:href => '#'} Subscribe
+          %a.btn.btn-refresh{:href => '#'} <i class="icon-refresh"></i>
+          .btn-group
+            %a.btn.btn-markall{:href => '#'} Mark all as read
+            %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
+              %span.caret 
+
         -#%form.navbar-form.pull-left
         -#  %button.btn{:type => 'submit'} <i class="icon-search"></i>.
 
