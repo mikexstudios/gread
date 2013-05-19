@@ -26,8 +26,9 @@
       .navbar-inner
         %a.brand{:href => '#'} GREAD
         %form.navbar-form.pull-left
-          %input{:type => 'text', :class =>'span5'}
-          %button.btn{:type => 'submit'} <i class="icon-search"></i>
+          .input-append
+            %input{:type => 'text', :class =>'span5'}
+            %button.btn{:type => 'submit'} <i class="icon-search"></i>
         %p.navbar-text.pull-right
           <a href="#" class="navbar-link">Logout</a>
 
