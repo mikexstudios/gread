@@ -19,14 +19,24 @@
 
   %body
     -# removed the fixed attribute
-    .navbar.navbar-static-top
+    #header.navbar.navbar-static-top
       .navbar-inner
-        %a.brand{:href => '#'} Gread
+        %a.brand{:href => '#'} GREAD
         %form.navbar-form.pull-left
           %input{:type => 'text', :class =>'span5'}
           %button.btn{:type => 'submit'} <i class="icon-search"></i>.
         %p.navbar-text.pull-right
           <a href="#" class="navbar-link">Logout</a>
+
+    #controls.navbar.navbar-static-top
+      .navbar-inner.row-fluid
+        .span3
+          %a.btn.btn-primary{:href => '#'} Subscribe
+        .span9
+          %a.btn.btn-primary{:href => '#'} Subscribe
+        -#%form.navbar-form.pull-left
+        -#  %button.btn{:type => 'submit'} <i class="icon-search"></i>.
+
 
     .container-fluid
       = yield
