@@ -34,6 +34,7 @@ end
 #gem 'flatui-rails', '~> 0.0.4'
 gem 'compass-rails', '~> 1.0.3'
 gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'font-awesome-sass-rails', '~> 3.0.2.2' #for better glyphs
 
 #group :test do
 #  gem 'capybara','~> 1.1.3' 
