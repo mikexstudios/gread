@@ -7,6 +7,8 @@
     -#%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:name => "description", :content => ""}
     %meta{:name => "author", :content => ""}
+    -# TODO: Add IE7 support to font-awesome, see 
+    -# https://github.com/bokmann/font-awesome-rails
     :plain
       <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
       <!--[if lt IE 9]>
@@ -56,6 +58,16 @@
                 %li <a href="#">Sort by magic</a>
                 %li.divider
                 %li <a href="#">View details and statistics</a>
+
+            .pull-right
+              .btn-group{:'data-toggle' => 'buttons-radio'} 
+                %button.btn{:href => '#'} <i class="icon-th-list"></i>
+                %button.btn.active{:href => '#'} <i class="icon-list"></i>
+              .btn-group
+                %button.btn{:href => '#'} <i class="icon-angle-up"></i>
+                %button.btn{:href => '#'} <i class="icon-angle-down"></i>
+              .btn-group
+                %a.btn{:href => '#'} <i class="icon-cog"></i>
 
           
 
