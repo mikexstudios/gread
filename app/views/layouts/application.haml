@@ -30,15 +30,34 @@
           <a href="#" class="navbar-link">Logout</a>
 
     #controls.navbar.navbar-static-top
-      .navbar-inner.row-fluid
-        .span3
-          %a.btn.btn-primary{:href => '#'} Subscribe
-        .span9
-          %a.btn.btn-refresh{:href => '#'} <i class="icon-refresh"></i>
-          .btn-group
-            %a.btn.btn-markall{:href => '#'} Mark all as read
-            %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
-              %span.caret 
+      .navbar-inner
+        .row-fluid
+          .span3
+            %a.btn.btn-primary{:href => '#'} Subscribe
+          .span9
+            .btn-group
+              %a.btn.btn-refresh{:href => '#'} <i class="icon-refresh"></i>
+            .btn-group
+              %a.btn.btn-markall{:href => '#'} Mark all as read
+              %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
+                %span.caret 
+              %ul.dropdown-menu
+                %li <a href="#">All items</a>
+                %li <a href="#">Items older than a day</a>
+                %li <a href="#">Items older than a week</a>
+                %li <a href="#">Items older than two weeks</a>
+            .btn-group
+              %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
+                View settings...
+                %span.caret 
+              %ul.dropdown-menu
+                %li <a href="#">Sort by newest</a>
+                %li <a href="#">Sort by oldest</a>
+                %li <a href="#">Sort by magic</a>
+                %li.divider
+                %li <a href="#">View details and statistics</a>
+
+          
 
         -#%form.navbar-form.pull-left
         -#  %button.btn{:type => 'submit'} <i class="icon-search"></i>.
