@@ -1,3 +1,4 @@
+$gridColumns: 16
 @import bootstrap
 @import compass/css3
 //For sticky footer:
@@ -59,3 +60,22 @@
     .accordion-heading
       line-height: 1
 
+  .row-fluid [class*="span"]
+    min-height: 0
+    max-height: 1em
+  .accordion-toggle
+    padding: 8px 15px
+    padding-left: 4px 
+  .entry-star
+    float: left
+    margin-right: 5px
+  .entry-main
+    //See: http://quirksmode.org/css/user-interface/textoverflow.html
+    text-overflow: ellipsis
+    white-space: nowrap
+    overflow: hidden
+    .entry-title
+      font-weight: bold
+      display: inline
+    .entry-snippet
+      display: inline

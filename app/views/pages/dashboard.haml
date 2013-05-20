@@ -1,3 +1,4 @@
+-#.row-fluid
 .row-fluid
   #subscriptions.span3
     .sidebar-nav
@@ -9,13 +10,6 @@
       %ul.nav-list.nav
         %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
       %ul.nav-list.nav.collapse.in
-        %li <a href="#"><i class="icon-rss"></i> Link</a>
-        %li <a href="#">Link</a>
-        %li <a href="#">Link</a>
-
-      %ul.nav-list.nav
-        %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
-      %ul.nav-list.nav.collapse.in
         %li <a href="#">Link</a>
         %li <a href="#">Link</a>
         %li <a href="#">Link</a>
@@ -27,31 +21,49 @@
         %li <a href="#">Link</a>
         %li <a href="#">Link</a>
 
-  #viewer.span9
+      %ul.nav-list.nav
+        %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
+      %ul.nav-list.nav.collapse.in
+        %li <a href="#">Link</a>
+        %li <a href="#">Link</a>
+        %li <a href="#">Link</a>
+
+  #viewer.span13
     %h4.title All items
 
     #items.accordion
       .accordion-group
-        .accordion-heading
-          %a.accordion-toggle{:href => '#entry-1', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
-            Click to collapse
+        .accordion-heading.accordion-toggle{:href => '#entry-1', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+          .row-fluid
+            .span4
+              .entry-star <i class="icon-star-empty"></i>
+              .entry-feed-name Nature Chemistry
+            .span9.entry-main
+              .entry-title
+                Competition between model protocells driven by an encapsulated catalyst
+              .entry-snippet
+                &mdash; Darwinian evolution involves competition between members of a population. Here, the synthesis...
+            .span3.entry-date
+              May 18, 2013
         #entry-1.accordion-body.collapse
           .accordion-inner
             Some test text.
 
       .accordion-group
-        .accordion-heading
-          %a.accordion-toggle{:href => '#entry-2', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
-            Click to collapse
+        .accordion-heading.accordion-toggle{:href => '#entry-2', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+          .row-fluid
+            .span4
+              .entry-star <i class="icon-star-empty"></i>
+              .entry-feed-name Nature Chemistry
+            .span9.entry-main
+              .entry-title
+                Competition between model protocells driven by an encapsulated catalyst
+              .entry-snippet
+                &mdash; Darwinian evolution involves competition between members of a population. Here, the synthesis...
+            .span3.entry-date
+              May 18, 2013
         #entry-2.accordion-body.collapse
           .accordion-inner
             Some test text.
 
-      .accordion-group
-        .accordion-heading
-          %a.accordion-toggle{:href => '#entry-3', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
-            Click to collapse
-        #entry-3.accordion-body.collapse
-          .accordion-inner
-            Some test text.
 
