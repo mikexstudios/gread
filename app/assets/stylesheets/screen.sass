@@ -1,5 +1,7 @@
 @import bootstrap
 @import compass/css3
+//For sticky footer:
+@import compass/layout
 
 //NOTE: If sole icons in buttons don't seem like they have the right padding,
 //make sure doctype of html5 is set. That'll fix the problem.
@@ -14,6 +16,20 @@
     .input-append
       //Remove the margin set by appending search button to search box
       margin-bottom: 0
+
+//Make footer stick to bottom of page for short pages. Make sure this comes
+//*before* the actual footer definition so that we can override it.
+@include sticky-footer(2em, "#root", "#root-footer", "#footer")
+#footer
+  background: #eee
+  //Need to set bottom padding to zero to not cause scrollbar to show up. Well, 
+  //set it to 1px to fill that small gap that appears.
+  padding: 0.5em 1em 1px 1em
+  text-align: center
+  font-size: 0.8em
+  color: #999
+  a
+    color: #555
 
 #controls
   margin-bottom: 0.5em

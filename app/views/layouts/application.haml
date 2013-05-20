@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title Test title
+    %title GREAD - a great reader...
     -#Turning off responsive for now.
     -#%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:name => "description", :content => ""}
@@ -21,66 +21,67 @@
     = csrf_meta_tag
 
   %body
-    -# removed the fixed attribute
-    #header.navbar.navbar-static-top
-      .navbar-inner
-        %a.brand{:href => '#'} GREAD
-        %form.navbar-form.pull-left
-          .input-append
-            %input{:type => 'text', :class =>'span5'}
-            %button.btn{:type => 'submit'} <i class="icon-search"></i>
-        %p.navbar-text.pull-right
-          <a href="#" class="navbar-link">Logout</a>
+    -# Had to add a root container to use the sticky footer mixin from compass.
+    #root
+      -# removed the fixed attribute
+      #header.navbar.navbar-static-top
+        .navbar-inner
+          %a.brand{:href => '#'} GREAD
+          %form.navbar-form.pull-left
+            .input-append
+              %input{:type => 'text', :class =>'span5'}
+              %button.btn{:type => 'submit'} <i class="icon-search"></i>
+          %p.navbar-text.pull-right
+            <a href="#" class="navbar-link">Logout</a>
 
-    #controls.navbar.navbar-static-top
-      .navbar-inner
-        .row-fluid
-          .span3
-            %a.btn.btn-primary{:href => '#'} Subscribe
-          .span9
-            .btn-group
-              %a#btn-refresh.btn{:href => '#'} <i class="icon-refresh"></i>
-            .btn-group
-              %a.btn.btn-markall{:href => '#'} Mark all as read
-              %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
-                %span.caret 
-              %ul.dropdown-menu
-                %li <a href="#">All items</a>
-                %li <a href="#">Items older than a day</a>
-                %li <a href="#">Items older than a week</a>
-                %li <a href="#">Items older than two weeks</a>
-            .btn-group
-              %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
-                View settings...
-                %span.caret 
-              %ul.dropdown-menu
-                %li <a href="#">Sort by newest</a>
-                %li <a href="#">Sort by oldest</a>
-                %li <a href="#">Sort by magic</a>
-                %li.divider
-                %li <a href="#">View details and statistics</a>
-
-            .pull-right
-              .btn-group{:'data-toggle' => 'buttons-radio'} 
-                %button.btn{:href => '#'} <i class="icon-th-list"></i>
-                %button.btn.active{:href => '#'} <i class="icon-list"></i>
+      #controls.navbar.navbar-static-top
+        .navbar-inner
+          .row-fluid
+            .span3
+              %a.btn.btn-primary{:href => '#'} Subscribe
+            .span9
               .btn-group
-                %button.btn{:href => '#'} <i class="icon-angle-up"></i>
-                %button.btn{:href => '#'} <i class="icon-angle-down"></i>
+                %a#btn-refresh.btn{:href => '#'} <i class="icon-refresh"></i>
               .btn-group
-                %a.btn{:href => '#'} <i class="icon-cog"></i>
+                %a.btn.btn-markall{:href => '#'} Mark all as read
+                %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
+                  %span.caret 
+                %ul.dropdown-menu
+                  %li <a href="#">All items</a>
+                  %li <a href="#">Items older than a day</a>
+                  %li <a href="#">Items older than a week</a>
+                  %li <a href="#">Items older than two weeks</a>
+              .btn-group
+                %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
+                  View settings...
+                  %span.caret 
+                %ul.dropdown-menu
+                  %li <a href="#">Sort by newest</a>
+                  %li <a href="#">Sort by oldest</a>
+                  %li <a href="#">Sort by magic</a>
+                  %li.divider
+                  %li <a href="#">View details and statistics</a>
 
-          
+              .pull-right
+                .btn-group{:'data-toggle' => 'buttons-radio'} 
+                  %button.btn{:href => '#'} <i class="icon-th-list"></i>
+                  %button.btn.active{:href => '#'} <i class="icon-list"></i>
+                .btn-group
+                  %button.btn{:href => '#'} <i class="icon-angle-up"></i>
+                  %button.btn{:href => '#'} <i class="icon-angle-down"></i>
+                .btn-group
+                  %a.btn{:href => '#'} <i class="icon-cog"></i>
 
-        -#%form.navbar-form.pull-left
-        -#  %button.btn{:type => 'submit'} <i class="icon-search"></i>.
+            
+
+          -#%form.navbar-form.pull-left
+          -#  %button.btn{:type => 'submit'} <i class="icon-search"></i>.
 
 
-    .container-fluid
-      = yield
+      .container-fluid
+        = yield
 
-      %hr
-      -#%div= haml :footer
-      .footer
-        %p
-          &copy; Company 2013
+      -# For sticky footer mixin.
+      #root-footer
+    #footer
+      <a href="https://github.com/mikexstudios/gread/issues" target="_blank">Issue Tracker</a> | project by mX

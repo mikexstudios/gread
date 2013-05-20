@@ -29,33 +29,29 @@
 
   #viewer.span9
     %h4.title All items
-    .hero-unit
-      %h1 _
-      %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-      %p <a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a>
-    .row-fluid
-      .span4
-        %h2 Heading
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p <a class="btn" href="#">View details &raquo;</a>
-      .span4
-        %h2 Heading
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p <a class="btn" href="#">View details &raquo;</a>
-      .span4
-        %h2 Heading
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p <a class="btn" href="#">View details &raquo;</a>
-    .row-fluid
-      .span4
-        %h2 Heading
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p <a class="btn" href="#">View details &raquo;</a>
-      .span4
-        %h2 Heading
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p <a class="btn" href="#">View details &raquo;</a>
-      .span4
-        %h2 Heading
-        %p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-        %p <a class="btn" href="#">View details &raquo;</a>
+
+    #items.accordion
+      .accordion-group
+        .accordion-heading
+          %a.accordion-toggle{:href => '#one', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+            Click to collapse
+        #one.accordion-body.collapse
+          .accordion-inner
+            Some test text.
+
+      .accordion-group
+        .accordion-heading
+          %a.accordion-toggle{:href => '#two', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+            Click to collapse
+        #two.accordion-body.collapse
+          .accordion-inner
+            Some test text.
+
+      .accordion-group
+        .accordion-heading
+          %a.accordion-toggle{:href => '#three', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+            Click to collapse
+        #three.accordion-body.collapse
+          .accordion-inner
+            Some test text.
+
