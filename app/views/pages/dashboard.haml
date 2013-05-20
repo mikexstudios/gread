@@ -1,6 +1,6 @@
 .row-fluid
-  .span3
-    #subscriptions.sidebar-nav
+  #subscriptions.span3
+    .sidebar-nav
       %ul.nav-list.nav
         %li.active <a href="#"><i class="icon-home"></i> All items</a>
         %li <a href="#"><i class="icon-star"></i> Starred items</a>
@@ -9,6 +9,13 @@
       %ul.nav-list.nav
         %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
       %ul.nav-list.nav.collapse.in
+        %li <a href="#"><i class="icon-rss"></i> Link</a>
+        %li <a href="#">Link</a>
+        %li <a href="#">Link</a>
+
+      %ul.nav-list.nav
+        %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
+      %ul.nav-list.nav.collapse.in
         %li <a href="#">Link</a>
         %li <a href="#">Link</a>
         %li <a href="#">Link</a>
@@ -20,13 +27,8 @@
         %li <a href="#">Link</a>
         %li <a href="#">Link</a>
 
-      %ul.nav-list.nav
-        %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
-      %ul.nav-list.nav.collapse.in
-        %li <a href="#">Link</a>
-        %li <a href="#">Link</a>
-        %li <a href="#">Link</a>
-  .span9
+  #viewer.span9
+    %h4.title All items
     .hero-unit
       %h1 _
       %p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
