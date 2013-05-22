@@ -11,12 +11,14 @@ group :development do
   
   # Place `debugger` somewhere in code to set breakpoint
   #gem 'debugger', '~> 1.2.1'
+
+  gem 'haml-rails', '~> 0.4.0' #for haml generators
 end
 
 group :production do
-  gem 'pg', '~> 0.14.1' #for heroku, PostgreSQL
+  gem 'pg', '~> 0.15.1' #for heroku, PostgreSQL
   #gem 'newrelic_rpm', '~> 3.5.0'
-  gem 'puma', '~> 1.6.3'
+  gem 'puma', '~> 2.0.1'
 end
 
 
@@ -41,10 +43,10 @@ gem 'font-awesome-sass-rails', '~> 3.0.2.2' #for better glyphs
 #  gem 'rspec-rails', '~> 2.11.4'
 #end
 
-gem 'haml', '~> 3.1.7'
-gem 'haml_rails', '~> 0.1.0' #for haml generators
-
+gem 'haml', '~> 4.0.3'
 gem 'high_voltage', '~> 1.2.1' #for static pages
+
+gem 'rails_admin', '~> 0.4.8'
 
 
 # To use ActiveModel has_secure_password
