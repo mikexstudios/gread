@@ -29,6 +29,7 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.0.1)
     bootstrap-sass (2.3.1.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -46,6 +47,11 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    devise (2.2.4)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (~> 3.1)
+      warden (~> 1.2.1)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -81,6 +87,7 @@ GEM
     multi_json (1.7.3)
     nested_form (0.3.2)
     nokogiri (1.5.9)
+    orm_adapter (0.4.0)
     pg (0.15.1)
     polyglot (0.3.3)
     puma (2.0.1)
@@ -150,6 +157,8 @@ GEM
     uglifier (2.1.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.1)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -158,6 +167,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.1.0)
   coffee-rails (~> 3.2.1)
   compass-rails (~> 1.0.3)
+  devise
   font-awesome-sass-rails (~> 3.0.2.2)
   haml (~> 4.0.3)
   haml-rails (~> 0.4.0)

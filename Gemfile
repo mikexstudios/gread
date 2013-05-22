@@ -63,3 +63,6 @@ gem 'rails_admin', '~> 0.4.8'
 
 # To use debugger
 # gem 'debugger'
+
+
+gem "devise"
