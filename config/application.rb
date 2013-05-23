@@ -67,5 +67,19 @@ module Gread
 
     # For devise and heroku
     config.assets.initialize_on_precompile = false
+
+    # For superfeedr
+    config.middleware.use Rack::Superfeedr, {:host => '4d36.localtunnel.com', 
+                                             :login => 'demo', 
+                                             :password => 'demo', 
+                                             :format => 'json'} do |superfeedr|
+      config.superfeedr = superfeedr #to access anywhere in app
+
+      config.superfeedr.on_notification do |n|
+        #Pass notification to model for processing.
+        #TODO: Even better is to put this in a queue for processing.
+        puts n.to_s
+      end
+    end
   end
 end

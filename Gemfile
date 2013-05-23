@@ -48,6 +48,8 @@ gem 'high_voltage', '~> 1.2.1' #for static pages
 
 gem 'rails_admin', '~> 0.4.8'
 
+gem 'rack-superfeedr', '~> 0.1.0'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
