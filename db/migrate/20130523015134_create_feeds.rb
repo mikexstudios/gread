@@ -5,9 +5,9 @@ class CreateFeeds < ActiveRecord::Migration
       t.string :title
       t.text :url
 
-      t.index :hash
-
       t.timestamps
     end
+
+    add_index :feeds, :hash
   end
 end

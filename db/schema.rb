@@ -11,7 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522194519) do
+ActiveRecord::Schema.define(:version => 20130523020309) do
+
+  create_table "entries", :force => true do |t|
+    t.integer  "feed_id"
+    t.string   "hash"
+    t.text     "permalink"
+    t.string   "title"
+    t.string   "author"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "entries", ["hash"], :name => "index_entries_on_hash"
+
+  create_table "feeds", :force => true do |t|
+    t.string   "hash"
+    t.string   "title"
+    t.text     "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "feeds", ["hash"], :name => "index_feeds_on_hash"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"

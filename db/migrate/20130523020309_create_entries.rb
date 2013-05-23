@@ -8,9 +8,9 @@ class CreateEntries < ActiveRecord::Migration
       t.string :author
       t.text :content
 
-      t.index :hash
-
       t.timestamps
     end
+
+    add_index :entries, :hash
   end
 end
