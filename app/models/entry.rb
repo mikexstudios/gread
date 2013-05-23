@@ -3,7 +3,7 @@ class Entry < ActiveRecord::Base
   #have to find a way to mirror this during initial population with other rss
   #polling methods.
   belongs_to :feed, #:touch => true, #update :notebook's updated_at
-                    :inverse_of => :entry
+                    :inverse_of => :entries
 
   attr_accessible :author, :content, :feed_id, :hid, :permalink, :title
   validates :feed_id, :presence => true
