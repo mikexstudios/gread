@@ -14,7 +14,7 @@ group :development do
   #gem 'annotate', '~> 2.5.0'
   
   # Place `debugger` somewhere in code to set breakpoint
-  #gem 'debugger', '~> 1.2.1'
+  gem 'debugger', '~> 1.6.0'
 
   gem 'haml-rails', '~> 0.4.0' #for haml generators
 end
