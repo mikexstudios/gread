@@ -74,12 +74,7 @@ module Gread
                                              :password => ENV['SUPERFEEDR_PASSWORD'], 
                                              :format => 'json'} do |superfeedr|
       config.superfeedr = superfeedr #to access anywhere in app
-
-      config.superfeedr.on_notification do |n|
-        #Pass notification to model for processing.
-        #TODO: Even better is to put this in a queue for processing.
-        puts n.to_s
-      end
+      #We configure notification options in initializers/superfeedr.rb
     end
   end
 end
