@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: entries
+#
+#  id         :integer          not null, primary key
+#  feed_id    :integer
+#  hid        :string(255)
+#  permalink  :text
+#  title      :string(255)
+#  author     :string(255)
+#  content    :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Entry < ActiveRecord::Base
   #NOTE: The :hid field is an md5 hash of the 'id' returned by superfeedr. We'll
   #have to find a way to mirror this during initial population with other rss

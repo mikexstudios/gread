@@ -11,7 +11,7 @@ gem 'puma', '~> 2.0.1'
 
 group :development do
   gem 'sqlite3', '~> 1.3.6'
-  #gem 'annotate', '~> 2.5.0'
+  gem 'annotate', '~> 2.5.0'
   
   # Place `debugger` somewhere in code to set breakpoint
   gem 'debugger', '~> 1.6.0'
