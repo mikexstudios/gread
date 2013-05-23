@@ -2,7 +2,7 @@ class CreateEntries < ActiveRecord::Migration
   def change
     create_table :entries do |t|
       t.references :feed
-      t.string :hash
+      t.string :hid #hash
       t.text :permalink
       t.string :title
       t.string :author
@@ -11,6 +11,6 @@ class CreateEntries < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :entries, :hash
+    add_index :entries, :hid
   end
 end

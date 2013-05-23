@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(:version => 20130523020309) do
 
   create_table "entries", :force => true do |t|
     t.integer  "feed_id"
-    t.string   "hash"
+    t.string   "hid"
     t.text     "permalink"
     t.string   "title"
     t.string   "author"
@@ -24,17 +24,17 @@ ActiveRecord::Schema.define(:version => 20130523020309) do
     t.datetime "updated_at", :null => false
   end
 
-  add_index "entries", ["hash"], :name => "index_entries_on_hash"
+  add_index "entries", ["hid"], :name => "index_entries_on_hid"
 
   create_table "feeds", :force => true do |t|
-    t.string   "hash"
+    t.string   "hid"
     t.string   "title"
     t.text     "url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "feeds", ["hash"], :name => "index_feeds_on_hash"
+  add_index "feeds", ["hid"], :name => "index_feeds_on_hid"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
