@@ -69,9 +69,9 @@ module Gread
     config.assets.initialize_on_precompile = false
 
     # For superfeedr
-    config.middleware.use Rack::Superfeedr, {:host => '4d36.localtunnel.com', 
-                                             :login => 'demo', 
-                                             :password => 'demo', 
+    config.middleware.use Rack::Superfeedr, {:host => ENV['SUPERFEEDR_HOST'],
+                                             :login => ENV['SUPERFEEDR_LOGIN'], 
+                                             :password => ENV['SUPERFEEDR_PASSWORD'], 
                                              :format => 'json'} do |superfeedr|
       config.superfeedr = superfeedr #to access anywhere in app
 

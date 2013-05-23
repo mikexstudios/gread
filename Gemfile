@@ -5,6 +5,10 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'jquery-rails'
 
+# Use same server for both development and production so that we can
+# use foreman to automatically set variables in .env
+gem 'puma', '~> 2.0.1'
+
 group :development do
   gem 'sqlite3', '~> 1.3.6'
   #gem 'annotate', '~> 2.5.0'
@@ -18,7 +22,6 @@ end
 group :production do
   gem 'pg', '~> 0.15.1' #for heroku, PostgreSQL
   #gem 'newrelic_rpm', '~> 3.5.0'
-  gem 'puma', '~> 2.0.1'
 end
 
 
