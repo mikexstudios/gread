@@ -51,7 +51,8 @@ Gread::Application.routes.draw do
   #     resources :products
   #   end
   namespace :settings do
-    root :to => 'importexport#index'
+    #Doing a redirect enables POST to importexport to be correctly routed.
+    get '/' => redirect('/settings/importexport') #settings_path
     resources :importexport
   end
 
