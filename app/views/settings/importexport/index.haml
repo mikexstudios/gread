@@ -4,7 +4,15 @@
   %li.active <a href="#">Import/Export</a>
   %li.disabled <a href="">Preferences</a>
 
-= form_for(settings_importexport_index_path, :html => { :class => 'form-horizontal' }) do |f|
+= form_for([:settings, @importexport], :html => { :class => 'form-horizontal' }) do |f|
+  - if defined? @importexport and @importexport.errors.any?
+    #error_explanation
+      %p
+        The form contains 
+        #{pluralize(@importexport.errors.count, "error")}:
+      %ul
+      - @importexport.errors.full_messages.each do |msg|
+        %li.alert.alert-error= msg
   %fieldset
     %legend Import subscriptions from another reader
     %p 
@@ -12,9 +20,9 @@
       existing subscriptions into Google Reader. To do this, you first have to
       export your subscriptions in a standard format called OPML.
     .control-group
-      = f.label :ompl, 'Select an OPML file', :class => 'control-label'
+      = f.label :opml, 'Select an OPML file', :class => 'control-label'
       .controls
-        = f.file_field :ompl
+        = f.file_field :opml
         .help-block
           e.g. Select your subscriptions.xml exported from Google Reader.
     .control-group

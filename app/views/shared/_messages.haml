@@ -1,0 +1,6 @@
+-#From: http://railsapps.github.com/twitter-bootstrap-rails.html
+- flash.each do |name, msg|
+  %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
+    -#NOTE: If use this 'X' for dismissal, install the jquery plugin too.
+    -#%a.close{"data-dismiss" => "alert"} &#215;
+    = content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String)
