@@ -19,10 +19,13 @@ class Notification
       #We don't care if create fails, so we don't use the ! at the end.
       e = feed.entries.create(:hid => hid,
                               :permalink => i['permalinkUrl'],
-                              :title => i['title'],
-                              :content => i['content'])
+                              :title => i['title'])
+      #Check if content is filled, if not use summary
+      content = i['summary'] if i['summary']
+      content = i['content'] if i['content']
       #Override created_at with the published time of the entry.
-      e.update_attributes(:created_at => published)
+      e.update_attributes(:created_at => published,
+                          :content => i['content'])
 
       if i['actor']
         e.update_attributes(:author => i['actor']['displayName'])   
