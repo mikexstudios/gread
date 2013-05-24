@@ -11,11 +11,10 @@ class Settings::ImportexportController < ApplicationController
       opml = params[:importexport][:opml].read
       opml = OpmlSaw::Parser.new(opml)
       opml.parse
-      pp opml.feeds
+      opml.feeds.each do |feed|
+        Feed.subscribe(feed[:xml_url])
+      end
 
-      #ompl.feeds.each do |feed|
-      #  
-      #end
       flash[:success] = 'Your subscriptions have been imported!'
       redirect_to :action => :index
     else

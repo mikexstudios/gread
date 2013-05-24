@@ -31,6 +31,11 @@ class Feed < ActiveRecord::Base
                     :length => { :maximum => 255 }
   validates :url, :presence => true
 
+  def self.subscribe(url)
+    sf = Rails.application.config.superfeedr
+    sf.subscribe(url)
+  end
+
   private
 
   #We re-implement created_at but leave updated_at unimplemented so that we 
