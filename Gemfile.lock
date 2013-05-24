@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/feedbin/opml_saw.git
+  revision: 61d8c2dd3d46e9cae38178754469dd9da7c8bd6a
+  specs:
+    opml_saw (0.0.2)
+      nokogiri
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -192,13 +199,14 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails (~> 1.0.3)
   debugger (~> 1.6.0)
-  devise
+  devise (~> 2.2.4)
   font-awesome-sass-rails (~> 3.0.2.2)
   haml (~> 4.0.3)
   haml-rails (~> 0.4.0)
   high_voltage (~> 1.2.1)
   jquery-rails
   newrelic_rpm (~> 3.6.2.96)
+  opml_saw!
   pg (~> 0.15.1)
   puma (~> 2.0.1)
   rack-superfeedr (~> 0.1.0)
