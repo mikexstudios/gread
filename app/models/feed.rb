@@ -9,6 +9,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+require 'digest/md5'
 
 class Feed < ActiveRecord::Base
   #NOTE: The :hid field is an md5 hash of the url and is indexed so that feeds
@@ -30,7 +31,7 @@ class Feed < ActiveRecord::Base
   private
 
   def hash_url
-    #TODO: Actually hash this
-    self.hid = self.url
+    self.hid = Digest::MD5.hexdigest(self.url)
   end
+
 end

@@ -19,10 +19,18 @@ class Entry < ActiveRecord::Base
   #polling methods.
   belongs_to :feed, #:touch => true, #update :notebook's updated_at
                     :inverse_of => :entries
+  before_save :hash_permalink
 
+  #TODO: Get rid of feed_id
   attr_accessible :author, :content, :feed_id, :hid, :permalink, :title
   validates :feed_id, :presence => true
   validates :permalink, :presence => true
   validates :title, :length => { :maximum => 255 }
   validates :author, :length => { :maximum => 255 }
+
+  private
+
+  def hash_permalink
+    self.hid = Digest::MD5.hexdigest(self.permalink)
+  end
 end
