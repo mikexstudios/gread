@@ -21,7 +21,7 @@ end
 
 group :production do
   gem 'pg', '~> 0.15.1' #for heroku, PostgreSQL
-  #gem 'newrelic_rpm', '~> 3.5.0'
+  gem 'newrelic_rpm', '~> 3.6.2.96'
 end
 
 
