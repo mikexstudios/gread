@@ -12,6 +12,10 @@
 require 'digest/md5'
 
 class Feed < ActiveRecord::Base
+  self.record_timestamps = false #disable auto-timestamping
+  before_create :set_created_at
+  before_save :hash_url
+
   #NOTE: The :hid field is an md5 hash of the url and is indexed so that feeds
   #can be quickly searched by knowing the url of the feed. The url of the feed 
   #can be arbitrary length, but the hash will be fixed 32-character length, making
@@ -19,16 +23,21 @@ class Feed < ActiveRecord::Base
   has_many :entries, :dependent => :destroy,
                      :order => 'updated_at DESC',
                      :inverse_of => :feed
-  before_save :hash_url
 
   #NOTE: rails_admin can only edit fields that have been made attr_accessible
-  attr_accessible :title, :url
+  attr_accessible :title, :url, :updated_at
 
   validates :title, :presence => true,
                     :length => { :maximum => 255 }
   validates :url, :presence => true
 
   private
+
+  #We re-implement created_at but leave updated_at unimplemented so that we 
+  #can set it ourselves.
+  def set_created_at
+    self.created_at = Time.now
+  end
 
   def hash_url
     self.hid = Digest::MD5.hexdigest(self.url)
