@@ -40,6 +40,7 @@ end
 gem 'compass-rails', '~> 1.0.3'
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'font-awesome-sass-rails', '~> 3.0.2.2' #for better glyphs
+gem 'bootstrap_file_input_rails', '~> 0.0.1' #bootstrap file input
 
 #group :test do
 #  gem 'capybara','~> 1.1.3' 

@@ -1,2 +1,23 @@
-%h1 Settings#index
-%p Find me in app/views/settings/index.html.haml
+%h4.title Settings
+
+%ul.nav.nav-tabs
+  %li.active <a href="#">Import/Export</a>
+  %li.disabled <a href="">Preferences</a>
+
+= form_for(settings_path, :html => { :class => 'form-horizontal' }) do |f|
+  %fieldset
+    %legend Import subscriptions from another reader
+    %p 
+      If you are switching from another feed reader, you can import your
+      existing subscriptions into Google Reader. To do this, you first have to
+      export your subscriptions in a standard format called OPML.
+    .control-group
+      = f.label :ompl, 'Select an OPML file', :class => 'control-label'
+      .controls
+        = f.file_field :ompl
+        .help-block
+          e.g. Select your subscriptions.xml exported from Google Reader.
+    .control-group
+      .controls
+        %button.btn{:type => 'submit'} Upload and Import
+

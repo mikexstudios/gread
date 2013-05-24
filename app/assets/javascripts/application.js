@@ -16,3 +16,4 @@
 // require flat-ui
 // Loads all Bootstrap javascripts
 //= require bootstrap
+//= require bootstrap.file-input
