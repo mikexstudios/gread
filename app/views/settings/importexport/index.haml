@@ -4,6 +4,8 @@
   %li.active <a href="#">Import/Export</a>
   %li.disabled <a href="">Preferences</a>
 
+= render :partial => '/shared/messages'
+
 = form_for([:settings, @importexport], :html => { :class => 'form-horizontal' }) do |f|
   - if defined? @importexport and @importexport.errors.any?
     #error_explanation
