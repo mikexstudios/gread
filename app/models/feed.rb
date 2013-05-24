@@ -13,7 +13,7 @@ require 'digest/md5'
 
 class Feed < ActiveRecord::Base
   self.record_timestamps = false #disable auto-timestamping
-  before_create :set_created_at
+  before_create :set_timestamps
   before_save :hash_url
 
   #NOTE: The :hid field is an md5 hash of the url and is indexed so that feeds
@@ -35,8 +35,10 @@ class Feed < ActiveRecord::Base
 
   #We re-implement created_at but leave updated_at unimplemented so that we 
   #can set it ourselves.
-  def set_created_at
+  def set_timestamps
     self.created_at = Time.now
+    #Set updated_at initially before manually setting because column cannot be null.
+    self.updated_at = Time.now 
   end
 
   def hash_url

@@ -20,8 +20,10 @@ class Notification
       e = feed.entries.create(:hid => hid,
                               :permalink => i['permalinkUrl'],
                               :title => i['title'],
-                              :content => i['content'],
-                              :created_at => published)
+                              :content => i['content'])
+      #Override created_at with the published time of the entry.
+      e.update_attributes(:created_at => published)
+
       if i['actor']
         e.update_attributes(:author => i['actor']['displayName'])   
       end
