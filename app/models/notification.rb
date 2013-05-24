@@ -25,7 +25,7 @@ class Notification
       content = i['content'] if i['content']
       #Override created_at with the published time of the entry.
       e.update_attributes(:created_at => published,
-                          :content => i['content'])
+                          :content => content)
 
       if i['actor']
         e.update_attributes(:author => i['actor']['displayName'])   
