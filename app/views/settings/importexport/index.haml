@@ -4,7 +4,7 @@
   %li.active <a href="#">Import/Export</a>
   %li.disabled <a href="">Preferences</a>
 
-= form_for(settings_path, :html => { :class => 'form-horizontal' }) do |f|
+= form_for(settings_root_path, :html => { :class => 'form-horizontal' }) do |f|
   %fieldset
     %legend Import subscriptions from another reader
     %p 
