@@ -30,7 +30,9 @@ RailsAdmin.config do |config|
   # config.excluded_models = []
 
   # Include specific models (exclude the others):
-  # config.included_models = []
+  # Need to manually include Delayed::Job for it to show up.
+  config.included_models = ['Feed', 'Entry', 'User', 'Delayed::Job']
+  #config.included_models << 'Delayed::Job'
 
   # Label methods for model instances:
   # config.label_methods << :description # Default is [:name, :title]
