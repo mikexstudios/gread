@@ -56,6 +56,10 @@ gem 'rails_admin', '~> 0.4.8'
 gem 'rack-superfeedr', '~> 0.1.0'
 gem 'opml_saw', :git => 'git://github.com/feedbin/opml_saw.git'
 
+#Background jobs
+gem 'delayed_job', '~> 3.0.5'
+gem 'delayed_job_active_record', '~> 0.4.4'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

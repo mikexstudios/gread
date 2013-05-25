@@ -9,6 +9,18 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+
+# == Schema Information
+#
+# Table name: feeds
+#
+#  id         :integer          not null, primary key
+#  hid        :string(255)
+#  title      :string(255)
+#  url        :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
 require 'digest/md5'
 
 class Feed < ActiveRecord::Base
