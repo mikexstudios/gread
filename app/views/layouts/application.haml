@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title GREAD - a great reader...
+    %title= yield :title
     -#Turning off responsive for now.
     -#%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:name => "description", :content => ""}
@@ -31,8 +31,17 @@
             .input-append
               %input{:type => 'text', :class =>'span5'}
               %button.btn{:type => 'submit'} <i class="icon-search"></i>
-          %p.navbar-text.pull-right
-            <a href="#" class="navbar-link">Logout</a>
+          %ul.nav.pull-right
+            - if signed_in?
+              %li.account 
+                = link_to 'Account', edit_user_registration_path
+              %li.logout 
+                = link_to 'Logout', destroy_user_session_path, :method => :delete
+            - else
+              %li.signup 
+                = link_to 'Signup', new_user_registration_path
+              %li.login
+                = link_to 'Login', new_user_session_path
 
       #controls.navbar.navbar-static-top
         .navbar-inner
