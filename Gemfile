@@ -59,6 +59,8 @@ gem 'opml_saw', :git => 'git://github.com/feedbin/opml_saw.git'
 #Background jobs
 gem 'delayed_job', '~> 3.0.5'
 gem 'delayed_job_active_record', '~> 0.4.4'
+# Scaling workers automatically on Heroku
+gem 'hirefire', '~> 0.1.4'
 
 
 # To use ActiveModel has_secure_password
