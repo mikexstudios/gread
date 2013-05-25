@@ -22,6 +22,9 @@ end
 group :production do
   gem 'pg', '~> 0.15.1' #for heroku, PostgreSQL
   gem 'newrelic_rpm', '~> 3.6.2.96'
+  
+  # Scaling workers automatically on Heroku
+  gem 'workless', '~> 1.1.2'
 end
 
 
@@ -59,8 +62,6 @@ gem 'opml_saw', :git => 'git://github.com/feedbin/opml_saw.git'
 #Background jobs
 gem 'delayed_job', '~> 3.0.5'
 gem 'delayed_job_active_record', '~> 0.4.4'
-# Scaling workers automatically on Heroku
-gem 'hirefire', '~> 0.1.4'
 
 
 # To use ActiveModel has_secure_password
