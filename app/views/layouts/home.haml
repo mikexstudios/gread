@@ -1,0 +1,11 @@
+-# Using nested layouts:
+-# http://guides.rubyonrails.org/layouts_and_rendering.html#using-nested-layouts
+
+- content_for :content do
+  -#.row-fluid
+  .row-fluid
+    -# To the right of the left sidebar
+    #viewer.span16
+      = yield
+
+= render :template => 'layouts/application'

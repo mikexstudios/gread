@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title GREAD - a great reader...
+    %title= yield :title
     -#Turning off responsive for now.
     -#%meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:name => "description", :content => ""}
@@ -20,7 +20,7 @@
     = favicon_link_tag
     = csrf_meta_tag
 
-  %body
+  %body{ :id => "#{location_name}", :class => "bp #{controller.controller_name}" }
     -# Had to add a root container to use the sticky footer mixin from compass.
     #root
       -# removed the fixed attribute
@@ -31,87 +31,22 @@
             .input-append
               %input{:type => 'text', :class =>'span5'}
               %button.btn{:type => 'submit'} <i class="icon-search"></i>
-          %p.navbar-text.pull-right
-            <a href="#" class="navbar-link">Logout</a>
+          %ul.nav.pull-right
+            - if signed_in?
+              %li.account 
+                = link_to 'Account', edit_user_registration_path
+              %li.logout 
+                = link_to 'Logout', destroy_user_session_path, :method => :delete
+            - else
+              %li.signup 
+                = link_to 'Signup', new_user_registration_path
+              %li.login
+                = link_to 'Login', new_user_session_path
 
-      #controls.navbar.navbar-static-top
-        .navbar-inner
-          .row-fluid
-            .span3
-              %a.btn.btn-primary{:href => '#'} Subscribe
-            .span13
-              .btn-group
-                %a#btn-refresh.btn{:href => '#'} <i class="icon-refresh"></i>
-              .btn-group
-                %a.btn.btn-markall{:href => '#'} Mark all as read
-                %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
-                  %span.caret 
-                %ul.dropdown-menu
-                  %li <a href="#">All items</a>
-                  %li <a href="#">Items older than a day</a>
-                  %li <a href="#">Items older than a week</a>
-                  %li <a href="#">Items older than two weeks</a>
-              .btn-group
-                %a.btn.dropdown-toggle{:href => '#', :'data-toggle' => 'dropdown'} 
-                  View settings...
-                  %span.caret 
-                %ul.dropdown-menu
-                  %li <a href="#">Sort by newest</a>
-                  %li <a href="#">Sort by oldest</a>
-                  %li <a href="#">Sort by magic</a>
-                  %li.divider
-                  %li <a href="#">View details and statistics</a>
-
-              .pull-right
-                .btn-group{:'data-toggle' => 'buttons-radio'} 
-                  %button.btn{:href => '#'} <i class="icon-th-list"></i>
-                  %button.btn.active{:href => '#'} <i class="icon-list"></i>
-                .btn-group
-                  %button.btn{:href => '#'} <i class="icon-angle-up"></i>
-                  %button.btn{:href => '#'} <i class="icon-angle-down"></i>
-                .btn-group
-                  %a.btn{:href => settings_path} <i class="icon-cog"></i>
-
-            
-
-          -#%form.navbar-form.pull-left
-          -#  %button.btn{:type => 'submit'} <i class="icon-search"></i>.
-
+      = yield(:after_navbar) if content_for?(:after_navbar)
 
       .container-fluid
-        -#.row-fluid
-        .row-fluid
-          #subscriptions.span3
-            .sidebar-nav
-              %ul.nav-list.nav
-                %li.active <a href="#{root_path}"><i class="icon-home"></i> All items</a>
-                %li <a href="#"><i class="icon-star"></i> Starred items</a>
-                %li.divider
-        
-              %ul.nav-list.nav
-                %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
-              %ul.nav-list.nav.collapse.in
-                %li <a href="#">Link</a>
-                %li <a href="#">Link</a>
-                %li <a href="#">Link</a>
-        
-              %ul.nav-list.nav
-                %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
-              %ul.nav-list.nav.collapse.in
-                %li <a href="#">Link</a>
-                %li <a href="#">Link</a>
-                %li <a href="#">Link</a>
-        
-              %ul.nav-list.nav
-                %li.nav-header{:'data-toggle' => 'collapse-next'} <i class="icon-folder-close"></i>Sidebar
-              %ul.nav-list.nav.collapse.in
-                %li <a href="#">Link</a>
-                %li <a href="#">Link</a>
-                %li <a href="#">Link</a>
-          
-          -# To the right of the left sidebar
-          #viewer.span13
-            = yield
+        = content_for?(:content) ? yield(:content) : yield
 
       -# For sticky footer mixin.
       #root-footer
