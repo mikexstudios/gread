@@ -12,7 +12,7 @@ class PagesController < HighVoltage::PagesController
       when 'home'
         'home'
       else
-        'application'
+        'reader'
       end
     end
 
