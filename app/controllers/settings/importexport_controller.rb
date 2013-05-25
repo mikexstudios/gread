@@ -12,10 +12,10 @@ class Settings::ImportexportController < ApplicationController
       opml = OpmlSaw::Parser.new(opml)
       opml.parse
       opml.feeds.each do |feed|
-        Feed.subscribe(feed[:xml_url])
+        Feed.delay.subscribe(feed[:xml_url])
       end
 
-      flash[:success] = 'Your subscriptions have been imported!'
+      flash[:success] = 'Your subscriptions are being imported!'
       redirect_to :action => :index
     else
       render 'index'
