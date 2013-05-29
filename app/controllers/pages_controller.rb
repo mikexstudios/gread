@@ -17,10 +17,11 @@ class PagesController < HighVoltage::PagesController
     end
 
     # The point of this filter is to check if the id is 'home'. If so, and if
-    # the user is already logged in, redirects user to the notebooks page.
+    # the user is already logged in, redirects user to the dashboard page.
     def check_redirect
       if params[:id] == 'home' and user_signed_in?
-        redirect_to page_path('dashboard')
+        #redirect_to page_path('dashboard')
+        redirect_to feeds_path
       end
     end
 end
