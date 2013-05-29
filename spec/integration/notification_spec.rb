@@ -65,4 +65,40 @@ describe Notification do
 
     end
   end
+
+  describe 'successive basic notification of same feed' do
+    before do
+      fixture_path = RSpec.configuration.fixture_path
+      #In basic, the example.com feed is new to the system and has published
+      #two posts.
+      notification_path = File.join(fixture_path, 'superfeedr/basic.json')
+      @n1 = JSON.parse(File.read(notification_path))
+      Notification.parse_superfeedr(@n1)
+
+      #In basic2, the example.com feed has published its third post.
+      notification_path = File.join(fixture_path, 'superfeedr/basic2.json')
+      @n2 = JSON.parse(File.read(notification_path))
+      Notification.parse_superfeedr(@n2)
+    end
+
+    it 'should only create one feed' do
+      Feed.count.should == 1
+    end
+
+    describe 'third entry information' do
+      before do 
+        @entry = Entry.find_by_id(3) 
+        @i = @n2['items'].first
+      end
+      subject { @entry }
+
+      its(:feed) { should == Feed.first }
+      its(:title) { should == @i['title'] }
+      its(:permalink) { should == @i['permalinkUrl'] }
+      its(:author) { should == nil }
+      its(:content) { should == @i['summary'] }
+      its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }
+      its(:created_at) { should == Time.at(@i['published']).to_datetime }
+    end
+  end
 end
