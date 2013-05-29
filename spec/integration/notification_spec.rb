@@ -9,11 +9,16 @@ describe Notification do
       @n = JSON.parse(File.read(notification_path))
     end
 
-    it 'should create a feed' do
-      expect { Notification.parse_superfeedr(@n) }.to change(Feed, :count).by(1)
-    end
-    it 'should create two entries' do
-      expect { Notification.parse_superfeedr(@n) }.to change(Entry, :count).by(2)
+    describe 'should populate feed information' do
+      before { Notification.parse_superfeedr(@n) }
+      
+      it 'should create a feed' do
+        change(Feed, :count).by(1).should be_true
+      end
+
+      it 'should create two entries' do
+        change(Entry, :count).by(2).should be_true
+      end
     end
   end
 end
