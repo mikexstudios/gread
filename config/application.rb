@@ -69,9 +69,9 @@ module Gread
     config.assets.initialize_on_precompile = false
 
     # For superfeedr
-    config.middleware.use Rack::Superfeedr, {:host => ENV['SUPERFEEDR_HOST'],
-                                             :login => ENV['SUPERFEEDR_LOGIN'], 
-                                             :password => ENV['SUPERFEEDR_PASSWORD'], 
+    config.middleware.use Rack::Superfeedr, {:host => ENV['SUPERFEEDR_HOST'] || '',
+                                             :login => ENV['SUPERFEEDR_LOGIN'] || 'demo', 
+                                             :password => ENV['SUPERFEEDR_PASSWORD'] || 'demo', 
                                              :format => 'json'} do |superfeedr|
       config.superfeedr = superfeedr #to access anywhere in app
       #We configure notification options in initializers/superfeedr.rb
