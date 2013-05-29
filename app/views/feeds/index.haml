@@ -11,8 +11,8 @@
           .span9.entry-main
             .entry-title= entry.title
             .entry-snippet 
-              - snippet = strip_tags(entry.content).strip
-              - if not snippet.empty?
+              - snippet = strip_tags(entry.content)
+              - if not snippet.nil? and not snippet.empty?
                 &mdash; #{truncate(snippet, :length => 140)} 
           .span3.entry-date
             - if entry.created_at.to_date == Date.today
@@ -28,6 +28,7 @@
           %h3.entry-title <a class="entry-title-link" target="_blank" href="#{entry.url}">#{entry.title}</a>
           -if entry.author
             .entry-author by #{entry.author}
+          - entry.content = '' if entry.content.nil?
           .entry-body= entry.content.html_safe
       .entry-actions.span16
         .entry-star <i class="icon-star-empty"></i>
@@ -46,4 +47,5 @@
         .edit-tags
           <i class="icon-tag"></i> Edit tags: Chemistry
 
+= will_paginate @entries
 
