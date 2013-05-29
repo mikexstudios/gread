@@ -40,7 +40,7 @@ describe Notification do
 
         its(:feed) { should == Feed.first }
         its(:title) { should == @i['title'] }
-        its(:permalink) { should == @i['permalinkUrl'] }
+        its(:url) { should == @i['permalinkUrl'] }
         its(:author) { should == nil }
         its(:content) { should == @i['summary'] }
         its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }
@@ -56,7 +56,7 @@ describe Notification do
 
         its(:feed) { should == Feed.first }
         its(:title) { should == @i['title'] }
-        its(:permalink) { should == @i['permalinkUrl'] }
+        its(:url) { should == @i['permalinkUrl'] }
         its(:author) { should == @i['actor']['displayName'] }
         its(:content) { should == @i['summary'] }
         its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }
@@ -94,7 +94,7 @@ describe Notification do
 
       its(:feed) { should == Feed.first }
       its(:title) { should == @i['title'] }
-      its(:permalink) { should == @i['permalinkUrl'] }
+      its(:url) { should == @i['permalinkUrl'] }
       its(:author) { should == nil }
       its(:content) { should == @i['summary'] }
       its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }

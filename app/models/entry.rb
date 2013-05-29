@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  feed_id    :integer
 #  hid        :string(255)
-#  permalink  :text
+#  url        :text
 #  title      :string(255)
 #  author     :string(255)
 #  content    :text
@@ -21,10 +21,10 @@ class Entry < ActiveRecord::Base
                     :inverse_of => :entries
 
   #TODO: Get rid of feed_id
-  attr_accessible :author, :content, :feed_id, :hid, :permalink, :title,
+  attr_accessible :author, :content, :feed_id, :hid, :url, :title,
                   :created_at
   validates :feed_id, :presence => true
-  validates :permalink, :presence => true
+  validates :url, :presence => true
   validates :title, :length => { :maximum => 255 }
   validates :author, :length => { :maximum => 255 }
 

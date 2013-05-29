@@ -20,7 +20,7 @@ class Notification
       published = Time.at(i['published']).to_datetime
       #We don't care if create fails, so we don't use the ! at the end.
       e = feed.entries.create(:hid => hid,
-                              :permalink => i['permalinkUrl'],
+                              :url => i['permalinkUrl'],
                               :title => i['title'])
       #Check if content is filled, if not use summary
       content = i['summary'] if i['summary']
