@@ -5,7 +5,9 @@ class Notification
   # static methods
   def self.parse_superfeedr(n)
     #Get feed by 'hid' or create new feed entry
-    hid = Digest::MD5.hexdigest(n['id'])
+    #NOTE: We don't hash n['id'] because apparently, that changes contrary
+    #to what it is expected to do.
+    hid = Digest::MD5.hexdigest(n['status']['feed'])
     updated = Time.at(n['updated']).to_datetime
     feed = Feed.where(:hid => hid).first_or_create(:title => n['title'],
                                                    :url => n['status']['feed'])
