@@ -20,7 +20,6 @@ class PagesController < HighVoltage::PagesController
     # the user is already logged in, redirects user to the dashboard page.
     def check_redirect
       if params[:id] == 'home' and user_signed_in?
-        #redirect_to page_path('dashboard')
         redirect_to feeds_path
       end
     end
