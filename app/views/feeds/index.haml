@@ -3,7 +3,7 @@
 #items.accordion
   - @entries.each do |entry|
     .accordion-group
-      .accordion-heading.accordion-toggle.active{:href => "#entry-#{entry.id}", :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+      .accordion-heading.accordion-toggle{:href => "#entry-#{entry.id}", :'data-toggle' => 'collapse', :'data-parent' => '#items'}
         .row-fluid
           .span4
             .entry-star <i class="icon-star-empty"></i>
