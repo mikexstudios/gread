@@ -16,7 +16,7 @@ describe Notification do
         change(Feed, :count).by(1).should be_true
       end
 
-      describe 'should have feed information' do
+      describe 'feed information' do
         before { @feed = Feed.first }
         subject { @feed }
 
@@ -31,7 +31,7 @@ describe Notification do
         change(Entry, :count).by(2).should be_true
       end
 
-      describe 'should have first entry information' do
+      describe 'first entry information' do
         before do 
           @entry = Entry.first 
           @i = @n['items'].first
@@ -41,10 +41,28 @@ describe Notification do
         its(:feed) { should == Feed.first }
         its(:title) { should == @i['title'] }
         its(:permalink) { should == @i['permalinkUrl'] }
+        its(:author) { should == nil }
         its(:content) { should == @i['summary'] }
         its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }
         its(:created_at) { should == Time.at(@i['published']).to_datetime }
       end
+
+      describe 'second entry information with author' do
+        before do 
+          @entry = Entry.find_by_id(2)
+          @i = @n['items'][1]
+        end
+        subject { @entry }
+
+        its(:feed) { should == Feed.first }
+        its(:title) { should == @i['title'] }
+        its(:permalink) { should == @i['permalinkUrl'] }
+        its(:author) { should == @i['actor']['displayName'] }
+        its(:content) { should == @i['summary'] }
+        its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }
+        its(:created_at) { should == Time.at(@i['published']).to_datetime }
+      end
+
     end
   end
 end

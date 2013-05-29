@@ -18,6 +18,11 @@
       "updated": 1369368000
     },
     {
+      "actor": {
+        "displayName": "John Doe",
+        "id": "John Doe",
+        "permalinkUrl": ""
+      },
       "id": "http://example.com/2/",
       "permalinkUrl": "http://example.com/2/",
       "published": 1369368002,
