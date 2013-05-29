@@ -2,10 +2,10 @@ require 'spec_helper'
 require 'json'
 
 describe Notification do
-  describe 'with superfeedr notification' do
+  describe 'with basic notification' do
     before do
       fixture_path = RSpec.configuration.fixture_path
-      notification_path = File.join(fixture_path, 'basic-superfeedr-notification.json')
+      notification_path = File.join(fixture_path, 'superfeedr/basic.json')
       @n = JSON.parse(File.read(notification_path))
     end
 
