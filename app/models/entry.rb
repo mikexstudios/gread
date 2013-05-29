@@ -27,6 +27,9 @@ class Entry < ActiveRecord::Base
   validates :url, :presence => true
   validates :title, :length => { :maximum => 255 }
   validates :author, :length => { :maximum => 255 }
+  
+  #will_paginate settings
+  self.per_page = 30
 
   private
 

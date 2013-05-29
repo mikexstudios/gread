@@ -56,6 +56,9 @@ gem 'bootstrap_file_input_rails', '~> 0.0.1' #bootstrap file input
 gem 'haml', '~> 4.0.3'
 gem 'high_voltage', '~> 1.2.1' #for static pages
 
+gem 'will_paginate', '~> 3.0'
+gem 'bootstrap-will_paginate', '~> 0.0.9' #output Twitter bootstrap style
+
 gem 'devise', '~> 2.2.4'
 gem 'rails_admin', '~> 0.4.8'
 

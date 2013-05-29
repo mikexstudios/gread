@@ -1,6 +1,25 @@
 %h4.title All items
 
 #items.accordion
+  - @entries.each do |entry|
+    .accordion-group
+      .accordion-heading.accordion-toggle.active{:href => "#entry-#{entry.id}", :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+        .row-fluid
+          .span4
+            .entry-star <i class="icon-star-empty"></i>
+            .entry-feed-name= entry.feed.title
+          .span9.entry-main
+            .entry-title= entry.title
+            .entry-snippet 
+              - entry.content = strip_tags(entry.content).strip
+              - if not entry.content.empty?
+                &mdash; #{truncate(entry.content, :length => 200)} 
+          .span3.entry-date
+            - if entry.created_at.to_date == Date.today
+              = entry.created_at.strftime('%l:%M %p')
+            - else
+              = entry.created_at.strftime('%b %-d, %Y')
+
   .accordion-group
     .accordion-heading.accordion-toggle.active{:href => '#entry-1', :'data-toggle' => 'collapse', :'data-parent' => '#items'}
       .row-fluid
