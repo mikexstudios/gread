@@ -114,6 +114,8 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    loofah (1.2.1)
+      nokogiri (>= 1.4.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -241,6 +243,7 @@ DEPENDENCIES
   haml-rails (~> 0.4.0)
   high_voltage (~> 1.2.1)
   jquery-rails
+  loofah (~> 1.2.1)
   newrelic_rpm (~> 3.6.2.96)
   opml_saw!
   pg (~> 0.15.1)

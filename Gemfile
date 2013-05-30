@@ -69,6 +69,7 @@ gem 'opml_saw', :git => 'git://github.com/feedbin/opml_saw.git'
 gem 'delayed_job', '~> 3.0.5'
 gem 'delayed_job_active_record', '~> 0.4.4'
 
+gem 'loofah', '~> 1.2.1' #sanitize html fragments
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

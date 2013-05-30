@@ -14,6 +14,8 @@
 #
 
 class Entry < ActiveRecord::Base
+  before_save :sanitize!
+
   #NOTE: The :hid field is an md5 hash of the 'id' returned by superfeedr. We'll
   #have to find a way to mirror this during initial population with other rss
   #polling methods.
@@ -35,5 +37,11 @@ class Entry < ActiveRecord::Base
 
   def hash_permalink
     self.hid = Digest::MD5.hexdigest(self.permalink)
+  end
+
+  def sanitize!
+    self.title = Loofah.scrub_fragment(self.title, :prune).to_s if self.title
+    self.content = Loofah.scrub_fragment(self.content, :prune).to_s if self.content
+    self.author = Loofah.scrub_fragment(self.author, :prune).to_s if self.author
   end
 end
