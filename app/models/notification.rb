@@ -7,6 +7,7 @@ class Notification
     #Get feed by 'hid' or create new feed entry
     #NOTE: We don't hash n['id'] because apparently, that changes contrary
     #to what it is expected to do.
+    puts n
     hid = Digest::MD5.hexdigest(n['status']['feed'])
     updated = Time.at(n['updated']).to_datetime
     feed = Feed.where(:hid => hid).first_or_create(:title => n['title'],
