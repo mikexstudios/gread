@@ -30,8 +30,8 @@
           %h3.entry-title <a class="entry-title-link" target="_blank" href="#{entry.url}">#{entry.title}</a>
           -if entry.author
             .entry-author by #{entry.author}
-          - entry.content = '' if entry.content.nil?
-          .entry-body= entry.content.html_safe
+          -#- entry.content = '' if entry.content.nil?
+          -#.entry-body= entry.content.html_safe
       .entry-actions.span16
         .entry-star <i class="icon-star-empty"></i>
         .keep-unread
