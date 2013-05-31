@@ -31,7 +31,7 @@ class Entry < ActiveRecord::Base
   validates :author, :length => { :maximum => 255 }
   
   #will_paginate settings
-  self.per_page = 30
+  self.per_page = 20
 
   private
 
