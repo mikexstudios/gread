@@ -9,6 +9,7 @@ class Notification
     #to what it is expected to do.
     hid = Digest::MD5.hexdigest(n['status']['feed'])
     #Some feeds don't report an updated attribute.
+    #TODO: Also make sure that feed can't have a future updated time.
     if n['updated'].nil?
       updated = DateTime.now
     else
@@ -21,6 +22,7 @@ class Notification
 
     #For each entry in feed items, add Entry
     n['items'].each do |i|
+      put n['items']
       hid = Digest::MD5.hexdigest(i['id'])
       published = Time.at(i['published']).to_datetime
       #We don't care if create fails, so we don't use the ! at the end.
