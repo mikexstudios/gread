@@ -10,11 +10,7 @@ class Notification
     hid = Digest::MD5.hexdigest(n['status']['feed'])
     #Some feeds don't report an updated attribute.
     #TODO: Also make sure that feed can't have a future updated time.
-    if n['updated'].nil?
-      updated = DateTime.now
-    else
-      updated = Time.at(n['updated']).to_datetime
-    end
+    updated = n['updated'].nil? ? DateTime.now : Time.at(n['updated']).to_datetime
     feed = Feed.where(:hid => hid).first_or_create(:title => n['title'],
                                                    :url => n['status']['feed'])
     #Set feed's updated_at to what the feed tells us.
@@ -24,7 +20,7 @@ class Notification
     puts n['items']
     n['items'].each do |i|
       hid = Digest::MD5.hexdigest(i['id'])
-      published = Time.at(i['published']).to_datetime
+      published = i['published'].nil? ? DateTime.now : Time.at(i['published']).to_datetime
       #We don't care if create fails, so we don't use the ! at the end.
       e = feed.entries.create(:hid => hid,
                               :url => i['permalinkUrl'],
