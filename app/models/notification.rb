@@ -21,8 +21,8 @@ class Notification
     feed.update_attributes(:updated_at => updated)
 
     #For each entry in feed items, add Entry
+    puts n['items']
     n['items'].each do |i|
-      put n['items']
       hid = Digest::MD5.hexdigest(i['id'])
       published = Time.at(i['published']).to_datetime
       #We don't care if create fails, so we don't use the ! at the end.
