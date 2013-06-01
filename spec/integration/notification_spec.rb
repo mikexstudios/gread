@@ -104,8 +104,12 @@ describe Notification do
   describe 'with basic notification without datetimes' do
     before do
       fixture_path = RSpec.configuration.fixture_path
-      notification_path = File.join(fixture_path, 'superfeedr/basic_nodatetime.json')
+      notification_path = File.join(fixture_path, 'superfeedr/basic.json')
       @n = JSON.parse(File.read(notification_path))
+      #Setting feed updated time to nil and first item's published time to nil
+      @n['updated'] = nil
+      @i = @n['items'].first
+      @i['published'] = nil
       Notification.parse_superfeedr(@n)
 
       @feed = Feed.first
