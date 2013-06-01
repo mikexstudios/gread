@@ -1,0 +1,67 @@
+{
+  "id": "example-com-2013-05-24t04-00-00z",
+  "items": [{
+      "id": "http://example.com/1/",
+      "permalinkUrl": "http://example.com/1/",
+      "published": null,
+      "standardLinks": {
+        "alternate": [{
+            "href": "http://example.com/1/",
+            "rel": "alternate",
+            "title": "Alternate Title 1",
+            "type": "text/html"
+          }
+        ]
+      },
+      "summary": "This is the first summary.",
+      "title": "This is the first title.",
+      "updated": null
+    }
+  ],
+  "permalinkUrl": "http://example.com/",
+  "standardLinks": {
+    "alternate": [{
+        "href": "http://example.com/",
+        "rel": "alternate",
+        "title": "example.com",
+        "type": "text/html"
+      }
+    ]
+  },
+  "status": {
+    "code": 200,
+    "entriesCountSinceLastMaintenance": 1,
+    "feed": "http://example.com/rss.xml",
+    "http": "Fetched (ring) 200 and parsed 1/4 entries",
+    "id": "example-com-2013-05-24t04-00-00z",
+    "lastFetch": 1369370737,
+    "lastMaintenanceAt": 1369291187,
+    "lastParse": 1369370737,
+    "nextFetch": 1369371637,
+    "period": 900,
+    "permalinkUrl": "http://example.com/",
+    "standardLinks": {
+      "alternate": [{
+          "href": "http://example.com/",
+          "rel": "alternate",
+          "title": "example.com",
+          "type": "text/html"
+        }, {
+          "href": "http://example.com/",
+          "rel": "alternate",
+          "title": "example.com",
+          "type": "text/html"
+        }, {
+          "href": "http://example.com/",
+          "rel": "alternate",
+          "title": "example.com",
+          "type": "text/html"
+        }
+      ]
+    },
+    "title": "example.com",
+    "updated": null
+  },
+  "title": "example.com",
+  "updated": null
+}

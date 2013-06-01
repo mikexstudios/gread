@@ -26,7 +26,6 @@ describe Notification do
         its(:created_at) { should_not == Time.at(@n['updated']).to_datetime }
       end
 
-
       it 'should create two entries' do
         change(Entry, :count).by(2).should be_true
       end
@@ -99,6 +98,33 @@ describe Notification do
       its(:content) { should == @i['summary'] }
       its(:updated_at) { should_not == Time.at(@i['published']).to_datetime }
       its(:created_at) { should == Time.at(@i['published']).to_datetime }
+    end
+  end
+
+  describe 'with basic notification without datetimes' do
+    before do
+      fixture_path = RSpec.configuration.fixture_path
+      notification_path = File.join(fixture_path, 'superfeedr/basic_nodatetime.json')
+      @n = JSON.parse(File.read(notification_path))
+      Notification.parse_superfeedr(@n)
+
+      @feed = Feed.first
+    end
+    subject { @feed }
+
+    #Because of possible time lag during testing, we allow a margin of error
+    #of 30 min for the updated_at time. This is fine since the .json test
+    #file has a nil timestamp.
+    its(:updated_at) { should >= DateTime.now - 30.minutes }
+
+    describe 'entry information without datetime' do
+      before do 
+        @entry = Entry.first 
+        @i = @n['items'].first
+      end
+      subject { @entry }
+
+      its(:created_at) { should >= DateTime.now - 30.minutes }
     end
   end
 end
