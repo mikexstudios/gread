@@ -117,9 +117,9 @@ describe Notification do
     subject { @feed }
 
     #Because of possible time lag during testing, we allow a margin of error
-    #of 30 min for the updated_at time. This is fine since the .json test
+    #of time for the updated_at time. This is fine since the .json test
     #file has a nil timestamp.
-    its(:updated_at) { should >= DateTime.now - 30.minutes }
+    its(:updated_at) { should be_within(10.minutes).of(DateTime.now) }
 
     describe 'entry information without datetime' do
       before do 
@@ -128,7 +128,38 @@ describe Notification do
       end
       subject { @entry }
 
-      its(:created_at) { should >= DateTime.now - 30.minutes }
+      its(:created_at) { should be_within(10.minutes).of(DateTime.now) }
+    end
+
+  end
+  describe 'with basic notification with future datetime' do
+    before do
+      fixture_path = RSpec.configuration.fixture_path
+      notification_path = File.join(fixture_path, 'superfeedr/basic.json')
+      @n = JSON.parse(File.read(notification_path))
+      #Setting feed updated time to nil and first item's published time to future
+      @n['updated'] = (DateTime.now + 6.months).to_i
+      @i = @n['items'].first
+      @i['published'] = (DateTime.now + 6.months).to_i
+      Notification.parse_superfeedr(@n)
+
+      @feed = Feed.first
+    end
+    subject { @feed }
+
+    #Because of possible time lag during testing, we allow a margin of error
+    #of time for the updated_at time. This is fine since the .json test
+    #file has a nil timestamp.
+    its(:updated_at) { should be_within(10.minutes).of(DateTime.now) }
+
+    describe 'entry information without datetime' do
+      before do 
+        @entry = Entry.first 
+        @i = @n['items'].first
+      end
+      subject { @entry }
+
+      its(:created_at) { should be_within(10.minutes).of(DateTime.now) }
     end
   end
 end
