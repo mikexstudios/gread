@@ -1,0 +1,29 @@
+-title "Subscribe to a feed"
+
+-#%h4.title Subscribe to a new feed
+
+= render :partial => '/shared/messages'
+
+= form_for(@feed, :html => { :class => 'form-horizontal' }) do |f|
+  - if defined? @feed and @feed.errors.any?
+    #error_explanation
+      %p
+        The form contains 
+        #{pluralize(@importexport.errors.count, "error")}:
+      %ul
+      - @importexport.errors.full_messages.each do |msg|
+        %li.alert.alert-error= msg
+  %fieldset
+    %legend Subscribe to a new feed
+    %p 
+      Enter a feed url to add it to your reader:
+    .control-group
+      = f.label :url, 'Feed url', :class => 'control-label'
+      .controls
+        = f.text_field :url
+        .help-block
+          e.g. http://myblog.com/feed.xml
+    .control-group
+      .controls
+        %button.btn{:type => 'submit'} Add feed!
+
