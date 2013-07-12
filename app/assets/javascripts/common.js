@@ -27,8 +27,8 @@ $(document).ready(function() {
   //each attribute, which is not elegant.
   $('#items').on('hidden', function(e) {
     var entry_id = '#' + e.target.id; //e.g. #entry-845
-    $(entry_id).find('.entry-title a').attr('href', null).text(null);
-    $(entry_id).find('.entry-author').text(null);
-    $(entry_id).find('.entry-body').text(null);
+    $(entry_id).find('.entry-title a').attr('href', '').text('');
+    $(entry_id).find('.entry-author').text('');
+    $(entry_id).find('.entry-body').text('');
   });
 });
