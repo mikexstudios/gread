@@ -1,5 +1,4 @@
 Gread::Application.routes.draw do
-  get "entries/show"
 
   devise_for :users
 
@@ -19,6 +18,7 @@ Gread::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :feeds
+  resources :entries
 
   # Sample resource route with options:
   #   resources :products do

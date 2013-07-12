@@ -1,2 +1,51 @@
-%h1 Entries#show
-%p Find me in app/views/entries/show.html.haml
+-title "GREAD - All Items", false
+
+%h4.title= @entry.feed.title
+
+#items.accordion
+  - [@entry].each do |entry| 
+    .accordion-group
+      .accordion-heading.accordion-toggle{:href => "#entry-#{entry.id}", :'data-toggle' => 'collapse', :'data-parent' => '#items'}
+        .row-fluid
+          .span4
+            .entry-star <i class="icon-star-empty"></i>
+            .entry-feed-name= entry.feed.title
+          .span9.entry-main
+            .entry-title= entry.title
+            .entry-snippet 
+              - snippet = strip_tags(entry.content)
+              - if not snippet.nil? and not snippet.empty?
+                &mdash; #{truncate(snippet, :length => 140)} 
+          .span3.entry-date
+            - if entry.created_at.to_date == Date.today
+              = entry.created_at.strftime('%l:%M %p')
+            - else
+              = entry.created_at.strftime('%b %-d, %Y')
+    .accordion-body{:id => "entry-#{entry.id}"}
+      -#Do not wrap span13 in row-fluid or else it won't work.
+      .accordion-inner
+        -#Don't but span13 on same line as .accordion-inner since that has
+        -#a full length border.
+        .span13
+          %h3.entry-title <a class="entry-title-link" target="_blank" href="#{entry.url}">#{entry.title}</a>
+          -if entry.author
+            .entry-author by #{entry.author}
+          - entry.content = '' if entry.content.nil?
+          .entry-body= entry.content.html_safe
+      .entry-actions.span16
+        .entry-star <i class="icon-star-empty"></i>
+        .keep-unread
+          %input{:type => 'checkbox'}
+          Keep unread
+        .share-buttons
+          Share: 
+          <a href="" popup=""><i class="icon-envelope"></i></a>
+          <a href="" popup=""><i class="icon-facebook"></i></a>
+          <a href="" popup=""><i class="icon-twitter"></i></a>
+          <a href="" popup=""><i class="icon-google-plus"></i></a>
+          -#<a href="" popup=""><i class="icon-pocket"></i></a>
+          -#<a href="" popup=""><i class="icon-instapaper"></i></a>
+          -#<a href="" popup=""><i class="icon-buffer"></i></a>
+        .edit-tags
+          <i class="icon-tag"></i> Edit tags: Chemistry
+
