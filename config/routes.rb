@@ -1,4 +1,6 @@
 Gread::Application.routes.draw do
+  get "entries/show"
+
   devise_for :users
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
