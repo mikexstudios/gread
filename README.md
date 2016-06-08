@@ -1,6 +1,8 @@
 GREAD - a good reader
 =====================
 
+**This is no longer developed with last commits in 2013.**
+
 ![GREAD Screenshot](https://github.com/mikexstudios/gread/raw/master/app/assets/images/screenshot_w800.png)
 
 What is this?
